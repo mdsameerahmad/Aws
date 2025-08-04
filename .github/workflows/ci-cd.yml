@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push api-gateway
+      uses: docker/build-push-action@v4
+      with:
+        context: ./api-gateway
+        push: true
+        tags: mlmproject2025/api-gateway:latest
+
+    - name: Build and push user-service
+      uses: docker/build-push-action@v4
+      with:
+        context: ./backend/user-service
+        push: true
+        tags: mlmproject2025/user-service:latest
+
+    - name: Build and push admin-service
+      uses: docker/build-push-action@v4
+      with:
+        context: ./backend/admin-service
+        push: true
+        tags: mlmproject2025/admin-service:latest
+
+    - name: Build and push income-service
+      uses: docker/build-push-action@v4
+      with:
+        context: ./backend/income-service
+        push: true
+        tags: mlmproject2025/income-service:latest
+
+    - name: Build and push wallet-service
+      uses: docker/build-push-action@v4
+      with:
+        context: ./backend/wallet-service
+        push: true
+        tags: mlmproject2025/wallet-service:latest
+
+    - name: Build and push frontend
+      uses: docker/build-push-action@v4
+      with:
+        context: ./frontend
+        push: true
+        tags: mlmproject2025/frontend:latest

@@ -1,0 +1,86 @@
+
+
+services:
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - USER_SERVICE_URL=http://user-service:5001
+      - ADMIN_SERVICE_URL=http://admin-service:5002
+      - WALLET_SERVICE_URL=http://wallet-service:5003
+      - INCOME_SERVICE_URL=http://income-service:5004
+      - API_GATEWAY_PORT=5000
+      - CLIENT_URL=http://localhost:3000
+      - JWT_SECRET=SuperSecretKey
+      - EMAIL_HOST=smtp.gmail.com
+      - EMAIL_PORT=587
+      - EMAIL_USER=mlmdevelopment001@gmail.com
+      - EMAIL_PASS=klteycriqmucjban
+    networks:
+      - mlm-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:5000
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.env.local
+    depends_on:
+      - api-gateway
+    networks:
+      - mlm-network
+
+  admin-service:
+    build:
+      context: ./backend/admin-service
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    env_file:
+      - ./backend/admin-service/.env
+    networks:
+      - mlm-network
+
+  user-service:
+    build:
+      context: ./backend/user-service
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    env_file:
+      - ./backend/user-service/.env
+    networks:
+      - mlm-network
+
+  income-service:
+    build:
+      context: ./backend/income-service
+      dockerfile: Dockerfile
+    ports:
+      - "5004:5004"
+    env_file:
+      - ./backend/income-service/.env
+    networks:
+      - mlm-network
+
+  wallet-service:
+    build:
+      context: ./backend/wallet-service
+      dockerfile: Dockerfile
+    ports:
+      - "5003:5003"
+    env_file:
+      - ./backend/wallet-service/.env
+    networks:
+      - mlm-network
+
+networks:
+  mlm-network:
+    driver: bridge
