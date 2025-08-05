@@ -41,7 +41,7 @@ app.use(
         process.env.CLIENT_URL,
         'https://growthaffinitymarketing.com',
         'https://www.growthaffinitymarketing.com',
-        'http://13.202.203.82:3000',
+        'https://growthaffinitymarketing.com',
         // Add more origins if needed
       ];
       
@@ -78,7 +78,7 @@ app.use((req, res, next) => {
       process.env.CLIENT_URL,
       "https://growthaffinitymarketing.com",
       "https://www.growthaffinitymarketing.com",
-      "http://13.202.203.82:3000",
+      "https://growthaffinitymarketing.com",
       // Add more origins if needed
     ];
 
@@ -214,7 +214,7 @@ app.listen(PORT, () => console.log(`🚀 API Gateway running on port ${PORT}`));
 //         process.env.CLIENT_URL,
 //         "https://growthaffinitymarketing.com",
 //         "https://www.growthaffinitymarketing.com",
-//         "http://13.202.203.82:3000",
+//         "https://growthaffinitymarketing.com",
 //       ];
 
 //       if (!origin || allowedOrigins.some((allowed) => origin.includes(allowed))) {
@@ -251,7 +251,7 @@ app.listen(PORT, () => console.log(`🚀 API Gateway running on port ${PORT}`));
 //       process.env.CLIENT_URL,
 //       "https://growthaffinitymarketing.com",
 //       "https://www.growthaffinitymarketing.com",
-//       "http://13.202.203.82:3000",
+//       "https://growthaffinitymarketing.com",
 //     ];
 
 //     const origin = req.headers.origin;

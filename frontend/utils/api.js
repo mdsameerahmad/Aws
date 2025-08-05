@@ -5,9 +5,9 @@
 
 // // Determine the API base URL.
 // // It tries to use NEXT_PUBLIC_API_URL from environment variables first.
-// // If not set (e.g., in development without a .env file), it defaults to http://13.202.203.82:5000.
+// // If not set (e.g., in development without a .env file), it defaults to https://api.growthaffinitymarketing.com.
 // // This is critical for Docker Compose networking:
-// // - From your browser: http://13.202.203.82:5000 (because Docker maps container port 5000 to host port 5000)
+// // - From your browser: https://api.growthaffinitymarketing.com (because Docker maps container port 5000 to host port 5000)
 // // - From frontend container to API Gateway container: http://api-gateway:5000 (using Docker's internal DNS resolution)
 // const API_URL = process.env.NEXT_PUBLIC_API_URL ;
 
@@ -132,7 +132,7 @@ import axios from 'axios';
 import { getToken, getAdminToken, clearAllTokens } from './auth';
 
 // 1. FIX: Added a fallback for your API URL
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://13.202.203.82:5000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.growthaffinitymarketing.com';
 
 const api = axios.create({
   baseURL: API_URL,
