@@ -3,7 +3,7 @@
 // import axios from 'axios';
 
 // const API = axios.create({
-//   baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://13.51.170.85:5000',
+//   baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://65.1.110.115:5000',
 //   withCredentials: true,
 //   headers: {
 //     'Content-Type': 'application/json',

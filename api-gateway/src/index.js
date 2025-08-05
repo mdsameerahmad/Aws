@@ -41,7 +41,7 @@
 //         process.env.CLIENT_URL,
 //         'https://growthaffinitymarketing.com',
 //         'https://www.growthaffinitymarketing.com',
-//         'http://13.51.170.85:3000',
+//         'http://65.1.110.115:3000',
 //         // Add more origins if needed
 //       ];
       
@@ -78,7 +78,7 @@
 //       process.env.CLIENT_URL,
 //       "https://growthaffinitymarketing.com",
 //       "https://www.growthaffinitymarketing.com",
-//       "http://13.51.170.85:3000",
+//       "http://65.1.110.115:3000",
 //       // Add more origins if needed
 //     ];
 
@@ -188,7 +188,7 @@ app.use((req, res, next) => {
   // ✅ Skip redirect for local development
   if (
     process.env.NODE_ENV === "development" ||
-    (host && host.includes("13.51.170.85"))
+    (host && host.includes("65.1.110.115"))
   ) {
     return next();
   }
@@ -214,7 +214,7 @@ app.use(
         process.env.CLIENT_URL,
         "https://growthaffinitymarketing.com",
         "https://www.growthaffinitymarketing.com",
-        "http://13.51.170.85:3000",
+        "http://65.1.110.115:3000",
       ];
 
       if (!origin || allowedOrigins.some((allowed) => origin.includes(allowed))) {
@@ -251,7 +251,7 @@ app.use((req, res, next) => {
       process.env.CLIENT_URL,
       "https://growthaffinitymarketing.com",
       "https://www.growthaffinitymarketing.com",
-      "http://13.51.170.85:3000",
+      "http://65.1.110.115:3000",
     ];
 
     const origin = req.headers.origin;
