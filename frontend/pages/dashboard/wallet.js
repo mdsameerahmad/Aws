@@ -29,7 +29,7 @@
 
 //     const fetchIncomeData = async (uid) => {
 //       try {
-//         const incomeRes = await axios.get(`http://3.110.157.87:5000/api/income/business/${uid}`);
+//         const incomeRes = await axios.get(`http://43.205.120.48:5000/api/income/business/${uid}`);
 //         const incomeData = incomeRes.data || {};
 
 //         setTotalIncome(incomeData.totalIncome || 0);
