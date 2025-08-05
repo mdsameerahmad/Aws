@@ -89,7 +89,7 @@ MLM-System/
 ## 🛡️ Middlewares
 
 - **CORS:**  
-  Configured to allow requests from the frontend (`CLIENT_URL` or `http://localhost:3000`), with credentials and standard headers.
+  Configured to allow requests from the frontend (`CLIENT_URL` or `http://51.21.223.118:3000`), with credentials and standard headers.
 - **cookieParser:**  
   Parses cookies for JWT and session management.
 - **express.json:**  
@@ -189,7 +189,7 @@ See `.env.example` for all required variables:
 ```
 MONGO_URI=your-mongodb-uri
 JWT_SECRET=your-jwt-secret
-CLIENT_URL=http://localhost:3000
+CLIENT_URL=http://51.21.223.118:3000
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_USER=your-email
