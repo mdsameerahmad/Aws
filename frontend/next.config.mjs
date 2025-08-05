@@ -32,7 +32,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: `${process.env.API_BASE_URL || 'http://43.205.120.48:5000'}/api/:path*`,
+        destination: `${process.env.API_BASE_URL || 'http://13.202.203.82:5000'}/api/:path*`,
       },
     ];
   },
