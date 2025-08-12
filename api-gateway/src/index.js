@@ -215,6 +215,7 @@ app.listen(PORT, () => console.log(`🚀 API Gateway running on port ${PORT}`));
 //         "https://growthaffinitymarketing.com",
 //         "https://www.growthaffinitymarketing.com",
 //         "https://growthaffinitymarketing.com",
+//         "http://localhost:3000"
 //       ];
 
 //       if (!origin || allowedOrigins.some((allowed) => origin.includes(allowed))) {
