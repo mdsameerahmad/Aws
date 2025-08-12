@@ -152,6 +152,24 @@ router.get("/me", jwtAuth, async (req, res) => {
   }
 });
 
+router.get("/leveltree-users", jwtAuth, async (req, res) => {
+  try {
+    const response = await axios.get(`${USER_SERVICE_URL}/api/auth/leveltree-users`, {
+      headers: {
+        Authorization: req.headers.authorization,
+      },
+    });
+    res.status(response.status).json(response.data);
+  } catch (err) {
+    console.error("API Gateway error:", {
+      status: err.response?.status,
+      data: err.response?.data,
+      message: err.message
+    });
+    res.status(err.response?.status || 500).json(err.response?.data || { error: "Service error" });
+  }
+});
+
 // Standardized Check Auth Route
 router.get("/check-auth", async (req, res) => {
   try {

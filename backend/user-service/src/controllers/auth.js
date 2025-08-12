@@ -525,3 +525,53 @@ exports.getAllUsersForAdmin = async (req, res) => {
     res.status(500).json({ error: "Failed to fetch users" });
   }
 };
+
+
+// new work after deployment
+// const User = require("../models/User");
+
+exports.getLevelTreeUsers = async (req, res) => {
+  try {
+    const userId = req.user.userId || req.user.id;
+
+    // Fetch only levelTree
+    const user = await User.findById(userId)
+      .select("levelTree")
+      .lean();
+
+    if (!user || !user.levelTree || user.levelTree.length === 0) {
+      return res.status(404).json({ message: "No level tree data found" });
+    }
+
+    // Gather all user IDs from all levels
+    const allUserIds = user.levelTree.flatMap(l => l.users);
+
+    // Fetch all users in one go
+    const allUsersData = await User.find(
+      { _id: { $in: allUserIds } },
+      { name: 1, email: 1 }
+    ).lean();
+
+    // Create a map for quick lookup
+    const userMap = {};
+    allUsersData.forEach(u => {
+      userMap[u._id.toString()] = u;
+    });
+
+    // Replace user IDs with full objects { _id, name, email }
+    const populatedLevels = user.levelTree.map(level => ({
+      level: level.level,
+      users: level.users.map(uid => userMap[uid.toString()] || { _id: uid })
+    }));
+
+    res.json({
+      levels: populatedLevels
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error",
+      error: error.message
+    });
+  }
+};

@@ -17,5 +17,6 @@ router.put('/change-password', jwtAuth, wrapAsync(auth.changePassword));
 
 
 router.get("/me", jwtAuth, wrapAsync(auth.getProfile));
+router.get("/leveltree-users",jwtAuth, wrapAsync(auth.getLevelTreeUsers));
 
 module.exports = router;
