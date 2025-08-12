@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchProfile } from '../../utils/profileService';
+import LevelTreeShow from "../../components/LevelTreeShow";
 import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();  
@@ -177,6 +178,7 @@ export default function BusinessPage() {
           </div>
         </div>
       )}
+      <LevelTreeShow />
     </div>
   );
 }
