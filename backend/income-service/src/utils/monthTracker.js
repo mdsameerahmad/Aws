@@ -25,15 +25,15 @@ const updateMonthlyStats = async (userId, income) => {
   await doc.save();
   
   // Clear cache after updating monthly stats
-  try {
-    await Promise.all([
-      clearBusinessCache(userId),
-      clearWalletCacheRemote(userId)
-    ]);
-    console.log(`🧹 Cleared cache after updating monthly stats for user ${userId}`);
-  } catch (err) {
-    console.error(`❌ Error clearing cache for user ${userId}:`, err);
-  }
+  // try {
+  //   await Promise.all([
+  //     clearBusinessCache(userId),
+  //     clearWalletCacheRemote(userId)
+  //   ]);
+  //   console.log(`🧹 Cleared cache after updating monthly stats for user ${userId}`);
+  // } catch (err) {
+  //   console.error(`❌ Error clearing cache for user ${userId}:`, err);
+  // }
 };
 
 module.exports = { updateMonthlyStats };

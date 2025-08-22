@@ -34,15 +34,17 @@ app.use("/", require("./routes/businessRoutes"));
 app.use("/api/income", require("./routes/incomeRoutes"));
 app.use(require('./routes/rankRoutes'));
 app.use(require('./routes/internalRoutes'));
-app.use('/test', require('./routes/testRoutes')); // Test routes
+// app.use('/test', require('./routes/testRoutes')); // Test routes
 
 
 // Add a direct route for topup-trigger for testing
-const { handleTopupTrigger } = require('./controllers/incomeController');
-app.post('/direct-topup-trigger', (req, res) => {
-  console.log('🔄 Direct topup-trigger route hit');
-  handleTopupTrigger(req, res);
-});
+
+// const { handleTopupTrigger } = require('./controllers/incomeController');
+
+// app.post('/direct-topup-trigger', (req, res) => {
+//   console.log('🔄 Direct topup-trigger route hit');
+//   handleTopupTrigger(req, res);
+// });
 
 app.get("/ping", (req, res) => res.send("💸 Income Service is Alive"));
 

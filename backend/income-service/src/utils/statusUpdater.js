@@ -74,15 +74,15 @@ const checkAndUpgradeStatus = async (userId) => {
           console.log(`🎉 Successfully upgraded to ${tier.name}`);
           
           // Clear cache after status update
-          try {
-            await Promise.all([
-              clearBusinessCache(userId),
-              clearWalletCacheRemote(userId)
-            ]);
-            console.log(`🧹 Cleared cache after status upgrade for user ${userId}`);
-          } catch (err) {
-            console.error(`❌ Error clearing cache for user ${userId}:`, err);
-          }
+          // try {
+          //   await Promise.all([
+          //     clearBusinessCache(userId),
+          //     clearWalletCacheRemote(userId)
+          //   ]);
+          //   console.log(`🧹 Cleared cache after status upgrade for user ${userId}`);
+          // } catch (err) {
+          //   console.error(`❌ Error clearing cache for user ${userId}:`, err);
+          // }
           
           return tier.name;
         } else {
