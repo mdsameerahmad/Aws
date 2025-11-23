@@ -6,6 +6,25 @@ import styles from './Products.module.css';
 
 const products = [
   {
+    productCode: 5025,
+    name: 'Silver Package',
+    dp: 1000,
+    mrp: 1200,
+    image: '/assets/images/Silver_2.jpg',
+  },  {
+    productCode: 5026,
+    name: 'Golden Package',
+    dp: 5000,
+    mrp: 6000,
+    image: '/assets/images/golden_2.jpg',
+  },  {
+    productCode: 5027,
+    name: 'Diamond Package',
+    dp: 10000,
+    mrp: 12000,
+    image: '/assets/images/diamond_2.jpg',
+  },
+  {
     productCode: 1025,
     name: 'Neem Extract',
     dp: 350,
